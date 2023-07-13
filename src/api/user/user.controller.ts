@@ -22,7 +22,7 @@ export class UserController {
   }
 
   @Post()
-  public createUser(@Body() body: CreateUserDto): Promise<User> {
+  public createUser(@Body() body: CreateUserDto): Promise<User | User[]> {
     return this.service.createUser(body);
   }
 }

@@ -1,19 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
-import { Repository } from 'typeorm';
 import { CreateUserDto } from './user.dto';
+import { UserRepository } from './user.dao';
 
 @Injectable()
 export class UserService {
-  @InjectRepository(User)
-  private readonly repository: Repository<User>;
-
+  constructor(private readonly repository: UserRepository) {}
   public getUser(id: number): Promise<User> {
     return this.repository.findOneBy({ id: id });
   }
 
-  public createUser(body: CreateUserDto): Promise<User> {
+  public createUser(body: CreateUserDto): Promise<User | User[]> {
     const user: User = new User();
 
     user.name = body.name;
