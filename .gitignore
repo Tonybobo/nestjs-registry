@@ -1,6 +1,11 @@
 # compiled output
 /dist
 /node_modules
+/sample/node_modules
+/sample/dist
+/sample/bin 
+/sample/*.env
+/lib
 
 # Logs
 logs
