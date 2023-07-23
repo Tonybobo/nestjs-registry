@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { getEnvPath } from './common/helper/env.helper';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { join } from 'path';
 import { ModuleLoaderModule } from './module-loader/module-loader.module';
 import { resolve } from 'path';
 import LogsMiddleware from './middleware/logs.middleware';
+import { DatabaseModule } from './shared/database/database.module';
+import { LoggerModule } from './log/log.module';
 
 const envFilePath: string =
   process.env.NODE_ENV === 'dev'
@@ -19,7 +19,8 @@ const envFilePath: string =
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
-    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
+    DatabaseModule,
+    LoggerModule,
     EventEmitterModule.forRoot({ wildcard: true }),
     ModuleLoaderModule.register({
       name: 'api-module',
