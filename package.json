@@ -7,7 +7,6 @@
   "version": "0.0.1",
   "description": "NestJs Server Package with Boilerplate Code ",
   "author": "Tony Bo",
-  "private": true,
   "license": "MIT",
   "scripts": {
     "build": "nest build",
