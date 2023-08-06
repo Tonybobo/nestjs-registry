@@ -1,5 +1,9 @@
 {
-  "name": "nestjs-registry",
+  "name": "Tonybobo/nestjs-registry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tonybobo/nestjs-registry.git"
+  },
   "version": "0.0.1",
   "description": "NestJs Server Package with Boilerplate Code ",
   "author": "Tony Bo",
