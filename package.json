@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/Tonybobo/nestjs-registry.git"
   },
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "NestJs Server Package with Boilerplate Code ",
   "author": "Tony Bo",
   "license": "MIT",
