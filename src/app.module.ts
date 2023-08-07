@@ -12,7 +12,7 @@ import { DatabaseModule } from './shared/database/database.module';
 import { LoggerModule } from './log/log.module';
 
 const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..'));
-
+console.log(envFilePath);
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
