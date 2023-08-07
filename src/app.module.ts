@@ -11,7 +11,7 @@ import LogsMiddleware from './middleware/logs.middleware';
 import { DatabaseModule } from './shared/database/database.module';
 import { LoggerModule } from './log/log.module';
 
-const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..'));
+const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..', '..'));
 console.log(envFilePath);
 @Module({
   imports: [
@@ -21,10 +21,7 @@ console.log(envFilePath);
     EventEmitterModule.forRoot({ wildcard: true }),
     ModuleLoaderModule.register({
       name: 'api-module',
-      path: resolve(
-        join(__dirname, '..', '..', 'src'),
-        join(__dirname, '..', '..', 'sample', 'dist'),
-      ),
+      path: resolve(join(__dirname, '..', '..', '..', '..', 'src')),
       fileSpec: '**/*.js',
       ignoreSpec: ['typeorm'],
     }),
