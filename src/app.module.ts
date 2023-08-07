@@ -11,10 +11,7 @@ import LogsMiddleware from './middleware/logs.middleware';
 import { DatabaseModule } from './shared/database/database.module';
 import { LoggerModule } from './log/log.module';
 
-const envFilePath: string =
-  process.env.NODE_ENV === 'dev'
-    ? getEnvPath(join(__dirname, '..', '..', 'sample'))
-    : getEnvPath(join(__dirname, '..', '..'));
+const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..'));
 
 @Module({
   imports: [

@@ -19,9 +19,7 @@ const path_2 = require("path");
 const logs_middleware_1 = require("./middleware/logs.middleware");
 const database_module_1 = require("./shared/database/database.module");
 const log_module_1 = require("./log/log.module");
-const envFilePath = process.env.NODE_ENV === 'dev'
-    ? (0, env_helper_1.getEnvPath)((0, path_1.join)(__dirname, '..', '..', 'sample'))
-    : (0, env_helper_1.getEnvPath)((0, path_1.join)(__dirname, '..', '..'));
+const envFilePath = (0, env_helper_1.getEnvPath)((0, path_1.join)(__dirname, '..', '..', '..'));
 let AppModule = exports.AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(logs_middleware_1.default).forRoutes('*');
