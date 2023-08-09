@@ -20,8 +20,8 @@ const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..', '..'));
     EventEmitterModule.forRoot({ wildcard: true }),
     ModuleLoaderModule.register({
       name: 'api-module',
-      path: resolve(join(__dirname, '..', '..', '..', '..', 'src')),
-      fileSpec: '**/*.ts',
+      path: resolve(join(__dirname, '..', '..', '..', '..', 'dist')),
+      fileSpec: '**/*.js',
       ignoreSpec: ['typeorm'],
     }),
   ],

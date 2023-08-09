@@ -23,10 +23,10 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       password: this.config.get<string>('DATABASE_PASSWORD'),
       entities: [
         Log,
-        join(__dirname, '..', '..', '..', '..', 'src/**/*.entity.{ts ,js}'),
+        join(__dirname, '..', '..', '..', '..', 'dist/**/*.entity.{ts ,js}'),
       ],
       migrations: [
-        join(__dirname, '..', '..', '..', '..', 'src/**/*.entity.{ts , js}'),
+        join(__dirname, '..', '..', '..', '..', 'dist/**/*.entity.{ts , js}'),
       ],
       migrationsTableName: 'typeorm_migrations',
       logger: new DatabaseLogger(),
