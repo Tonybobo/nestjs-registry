@@ -26,7 +26,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
         join(__dirname, '..', '..', '..', '..', 'src/**/*.entity.{ts ,js}'),
       ],
       migrations: [
-        'dist/**/*.entity.{ts,js}',
         join(__dirname, '..', '..', '..', '..', 'src/**/*.entity.{ts , js}'),
       ],
       migrationsTableName: 'typeorm_migrations',

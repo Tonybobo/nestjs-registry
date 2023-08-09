@@ -12,7 +12,6 @@ import { DatabaseModule } from './shared/database/database.module';
 import { LoggerModule } from './log/log.module';
 
 const envFilePath: string = getEnvPath(join(__dirname, '..', '..', '..', '..'));
-console.log(envFilePath);
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
@@ -22,7 +21,7 @@ console.log(envFilePath);
     ModuleLoaderModule.register({
       name: 'api-module',
       path: resolve(join(__dirname, '..', '..', '..', '..', 'src')),
-      fileSpec: '**/*.js',
+      fileSpec: '**/*.ts',
       ignoreSpec: ['typeorm'],
     }),
   ],

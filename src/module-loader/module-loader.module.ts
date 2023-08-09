@@ -59,6 +59,7 @@ class InternalModuleLoader {
   }
 
   private static async loadModule(modulePath: string): Promise<any> {
+    console.log(modulePath);
     return import(modulePath);
   }
 
