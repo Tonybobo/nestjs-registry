@@ -1,73 +1,81 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# NestJS Boilerplate Package
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Inspiration
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- My current company used this way to separate the business logic code and boilerplate code, but they implemented with awilix-koa.
 
-## Description
+- It is a interesting concept to me, thus i tried to recreate the packages with NestJs as it is built in with alot of features.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- After commiting some time on it , i find out that maybe type-graphql will suit the job more but i am lazy to switch to another framework. LOL
+
+- It is my first public package and i will not be maintaing it. If you find the concept interesting and will like to fork it and publish as another package, Please do so. After you have published your package , if you like , please give me a notice or a DM. I will like to learn from it too. Thanks!!!
+
+## FYI
+
+- The module are dynamic loaded.
+- The logs are saved into the database under the table `log`
+- You can extend the BaseRepository classs with your DAO class so you can `CRUD` in your service without writing these function in your DAO class.
+- To add your business logic code, You can follow the file structure below
+
+```
+  \-- src
+    \users
+      +-- user.controller.ts
+      +-- user.dao.ts
+      +-- user.dto.ts
+      +-- user.entity.ts
+      +-- user.module.ts
+      +-- user.serivce.ts
+    \common
+
+```
 
 ## Installation
 
-```bash
-$ yarn install
+### NPM
+
+`npm i @tonybobo/nestjs-registry `
+
+### Yarn
+
+`yarn add @tonybobo/nestjs-registry`
+
+## How to use
+
+- Create a main.ts
+- Add the code below
+
+```
+require("../node_modules/@tonybobo/nestjs-registry/dist/main.js")
 ```
 
-## Running the app
+- Add code below to the package.json
 
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+```
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rimraf dist && nest start && NODE_ENV=dev"
+  },
 ```
 
-## Test
+- create a .env file
+- depending on the NODE_ENV , you can create dev.env or stage.env or prod.env
 
-```bash
-# unit tests
-$ yarn run test
+```
+PORT=3000
+BASE_URL=http://localhost:3000
 
-# e2e tests
-$ yarn run test:e2e
+DATABASE_TYPE=mysql
+DATABASE_HOST=localhost
+DATABASE_NAME=tests
+DATABASE_USER=sammy
+DATABASE_PASSWORD=password
+DATABASE_PORT=3306
 
-# test coverage
-$ yarn run test:cov
+COOKIE=true;
+COOKIE_SECRET=123
 ```
 
-## Support
+## Reference
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- You can refer to this repository that i used to test this [package](https://github.com/Tonybobo/nestjs-registry-test-package)
