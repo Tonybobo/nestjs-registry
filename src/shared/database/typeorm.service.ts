@@ -30,12 +30,14 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           '..',
           '..',
           '..',
+          '..',
           'dist/**/*.entity.{ts ,js}',
         ),
       ],
       migrations: [
         join(
           __dirname,
+          '..',
           '..',
           '..',
           '..',
