@@ -12,9 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
+const sns_service_1 = require("./shared/aws/sns/sns.service");
+const s3_service_1 = require("./shared/aws/s3/s3.service");
 let AppController = exports.AppController = class AppController {
-    constructor(appService) {
+    constructor(appService, sns, s3) {
         this.appService = appService;
+        this.sns = sns;
+        this.s3 = s3;
     }
     getHello() {
         return this.appService.getHello();
@@ -28,6 +32,8 @@ __decorate([
 ], AppController.prototype, "getHello", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [app_service_1.AppService,
+        sns_service_1.default,
+        s3_service_1.default])
 ], AppController);
 //# sourceMappingURL=app.controller.js.map

@@ -16,6 +16,9 @@
 - The logs are saved into the database under the table `log`
 - You can extend the BaseRepository classs with your DAO class so you can `CRUD` in your service without writing these function in your DAO class.
 - To add your business logic code, You can follow the file structure below
+- There is a global AWS SNS Module `AwsSNSModule` and `AwsS3Module` which can be used
+  - AwsSNSModule has only publish function and the topic must be created before
+  - AwsS3Module has only upload and get files function
 
 ```
   \-- src
@@ -74,6 +77,10 @@ DATABASE_PORT=3306
 
 COOKIE=true;
 COOKIE_SECRET=123
+AWS_REGION=YOUR-REGION
+AWS_ACCESS_KEY_ID=YOUR-KEY
+AWS_SECRET_ACCESS_KEY=YOUR-SECRET-KEY
+AWS_SNS_TOPIC_ARN=YOUR-TOPIC
 ```
 
 ## Reference

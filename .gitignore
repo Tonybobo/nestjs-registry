@@ -5,6 +5,7 @@
 /sample/bin 
 /sample/*.env
 /lib
+*.env
 
 # Logs
 logs

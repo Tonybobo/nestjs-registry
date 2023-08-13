@@ -50,6 +50,7 @@ class InternalModuleLoader {
         });
     }
     static async loadModule(modulePath) {
+        console.log(modulePath);
         return Promise.resolve(`${modulePath}`).then(s => require(s));
     }
     static async getModuleFileNames(_options) {

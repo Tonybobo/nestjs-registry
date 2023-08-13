@@ -19,8 +19,7 @@ const path_2 = require("path");
 const logs_middleware_1 = require("./middleware/logs.middleware");
 const database_module_1 = require("./shared/database/database.module");
 const log_module_1 = require("./log/log.module");
-const envFilePath = (0, env_helper_1.getEnvPath)((0, path_1.join)(__dirname, '..', '..', '..'));
-console.log(envFilePath);
+const envFilePath = (0, env_helper_1.getEnvPath)((0, path_1.join)(__dirname, '..', '..', '..', '..'));
 let AppModule = exports.AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(logs_middleware_1.default).forRoutes('*');
@@ -35,7 +34,7 @@ exports.AppModule = AppModule = __decorate([
             event_emitter_1.EventEmitterModule.forRoot({ wildcard: true }),
             module_loader_module_1.ModuleLoaderModule.register({
                 name: 'api-module',
-                path: (0, path_2.resolve)((0, path_1.join)(__dirname, '..', '..', 'src'), (0, path_1.join)(__dirname, '..', '..', 'sample', 'dist')),
+                path: (0, path_2.resolve)((0, path_1.join)(__dirname, '..', '..', '..', '..', 'dist')),
                 fileSpec: '**/*.js',
                 ignoreSpec: ['typeorm'],
             }),

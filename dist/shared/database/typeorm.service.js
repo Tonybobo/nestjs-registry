@@ -26,11 +26,10 @@ let TypeOrmConfigService = exports.TypeOrmConfigService = class TypeOrmConfigSer
             password: this.config.get('DATABASE_PASSWORD'),
             entities: [
                 log_entity_1.default,
-                (0, path_1.join)(__dirname, '..', '..', '..', '..', 'sample/dist/sample/src/**/*.entity.{ts ,js}'),
+                (0, path_1.join)(__dirname, '..', '..', '..', '..', '..', '..', 'dist/**/*.entity.{ts ,js}'),
             ],
             migrations: [
-                'dist/**/*.entity.{ts,js}',
-                (0, path_1.join)(__dirname, '..', '..', '..', '..', 'dist', 'sample/src/**/*.entity.{ts , js}'),
+                (0, path_1.join)(__dirname, '..', '..', '..', '..', '..', '..', 'dist/**/*.entity.{ts , js}'),
             ],
             migrationsTableName: 'typeorm_migrations',
             logger: new databaseLogger_1.default(),
