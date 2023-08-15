@@ -23,7 +23,12 @@ export default class S3Service {
     this.client = new AWS.S3();
   }
 
-  async upload(bucket: string, key: string, body: Stream, mimeType: string) {
+  async upload(
+    bucket: string,
+    key: string,
+    body: Express.Multer.File['buffer'],
+    mimeType: string,
+  ) {
     const params = {
       Bucket: bucket,
       Key: key,
